@@ -37,7 +37,7 @@
         <div class="input-form-container" id="reminder-form-container">
 
           <input type="hidden" name="_method" value="POST">
-          <input type="text" name="reminder" class="input">
+          <input type="text" name="reminder" class="input" placeholder="Enter a reminder...">
           <input type="date" name="deadline" class="deadline-input">
 
           <?php if(isset($errors["input"])): ?>

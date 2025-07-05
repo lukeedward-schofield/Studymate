@@ -37,7 +37,7 @@
          <div class="input-form-container" id="project-form-container">
 
           <input type="hidden" name="_method" value="POST">
-          <input type="text" name="project" class="input">
+          <input type="text" name="project" class="input" placeholder="Enter a project...">
           <input type="date" name="deadline" class="deadline-input">
          
           <?php if(isset($errors["input"])): ?>
