@@ -1,0 +1,725 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+img{
+  object-fit: contain;
+}
+
+a, p, button, header, label, input{
+  font-family: 'Josefin Slab';
+}
+
+/*--------------------------------------------WELCOME PAGE---------------------------------------*/
+.welcome{
+  width: 100vw;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+
+.welcome .main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 74vh;
+}
+
+.welcome-img{
+  position: absolute;
+  top: 8vh;
+  width: 28vw;
+}
+
+/*--------------TOP DESIGN---------------*/
+.top-design{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.top-design img:nth-child(1){
+  width: 10vw;
+}
+
+.top-design img:nth-child(2){
+  width: 15vw;
+}
+/*--------------TOP DESIGN---------------*/
+
+/*--------------BOTTOM DESIGN---------------*/
+.bottom-design{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bottom-design img:nth-child(1){
+  width: 15vw;
+}
+
+.bottom-design img:nth-child(2){
+  width: 18vw;
+}
+/*--------------BOTTOM DESIGN---------------*/
+
+
+/*--------------REGISTER BUTTON---------------*/
+.register-btn-container{
+  display: flex;
+  position: absolute;  
+  top: 50vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 15vh;
+}
+
+.register-link{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background-color: #e9927c;
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+  width: 20vw;
+  border-radius: 0.5vw 0.5vw 0vw 0vw;
+}
+
+.register-btn-container div:nth-child(1){
+  position: absolute;
+  top: 0vh;
+  z-index: -3;
+  height: 10vh;
+  width: 19.2vw;
+  border: 0.4vw solid #a8bbf4;
+  border-radius: 0.5vw;
+}
+
+.register-btn-container div:nth-child(2){
+  position: absolute;
+  top: 1.2vh;
+  z-index: -2;
+  height: 10.3vh;
+  width: 20.5vw;
+  border: 0.4vw solid #44b680;
+  border-radius: 0.4vw;
+}
+
+.register-btn-container div:nth-child(3){
+  position: absolute;
+  z-index: -1;
+  top: 4vh;
+  height: 8.7vh;
+  width: 19.2vw;
+  border: 0.4vw solid #e9927c;
+  border-radius: 0.5vw;
+}
+
+
+.register-link a{
+  text-decoration: none;
+  color: white;
+}
+/*--------------REGISTER BUTTON---------------*/
+
+
+/*--------------LOGIN BUTTON---------------*/
+.login-btn-container{
+  display: flex;
+  position: absolute;  
+  top: 70vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 15vh;
+}
+
+.login-link{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background-color: #a8bbf4;
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+  width: 20vw;
+  border-radius: 0.5vw 0.5vw 0vw 0vw;
+}
+
+.login-btn-container div:nth-child(1){
+  position: absolute;
+  top: 0vh;
+  z-index: -3;
+  height: 10vh;
+  width: 19.2vw;
+  border: 0.4vw solid #e9927c;
+  border-radius: 0.5vw;
+}
+
+.login-btn-container div:nth-child(2){
+  position: absolute;
+  top: 1.2vh;
+  z-index: -2;
+  height: 10.3vh;
+  width: 20.5vw;
+  border: 0.4vw solid #44b680;
+  border-radius: 0.4vw;
+}
+
+.login-btn-container div:nth-child(3){
+  position: absolute;
+  z-index: -1;
+  top: 4vh;
+  height: 8.7vh;
+  width: 19.2vw;
+  border: 0.4vw solid #a8bbf4;
+  border-radius: 0.5vw;
+}
+
+
+.login-link a{
+  text-decoration: none;
+  color: white;
+}
+/*--------------LOGIN BUTTON---------------*/
+
+/*--------------------------------------------WELCOME PAGE---------------------------------------*/
+
+
+/*--------------------------------------------REGISTER-------------------------------------------*/
+.register-menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.register-container{
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 90vh;
+  align-items: center;
+  background-color: rgb(255, 225, 183);
+  border-radius: 0.5vw;
+    border-top: 1vw solid rgb(255, 238, 215);
+  border-right: 1vw solid #ffca84;
+  border-left: 1vw solid #ffca84;
+  border-bottom: 1vw solid #f19620;
+}
+
+.register-header{
+  margin-top: 5vh;
+  margin-bottom: 7vh;
+  font-size: 3em;
+  letter-spacing: 0.5em;
+  color: #db4722;
+}
+
+.register-form{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25vh;
+}
+
+.register-form label{
+  margin-top: 4vh;
+  margin-bottom: 1vh;
+  margin-left: 0.4vw;
+  font-size: 1em;
+  letter-spacing: 0.4vh;
+  font-weight: bolder;  
+  color: #db4722;
+}
+
+.register-form input{
+  width: 50vw;
+  height: 6vh;
+  border: none;
+  border-radius: 0.5vw;
+  background-color: #FFFFC7;
+  padding-left: 0.4vw;
+  font-size: 1em;
+}
+
+.register-form input::placeholder{
+  color: gray;
+}
+.register-footer{
+  display: flex;
+  position: absolute;
+  bottom: 10vh;
+  justify-content: space-between;
+  width: 50vw;
+  margin-left: 2vh;
+}
+
+.go-to-login{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.go-to-login p{
+  color: #44b680;
+}
+
+.go-to-login a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6vw;
+  height: 3vh;
+  color: white;
+  text-decoration: none;
+  background-color: #a8bbf4;
+  border-radius: 0.5vw;
+}
+
+.register-footer button{
+  width: 15vw;
+  height: 7vh;
+  border: none;
+  border-radius: 0.51vw;
+  color: white;
+  background-color: #e77053;
+  font-weight: 1000;
+  font-size: 1em;
+  letter-spacing: 1vw;
+}
+/*--------------------------------------------REGISTER---------------------------------------*/
+
+
+/*--------------------------------------------LOGIN---------------------------------------*/
+.login-menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+}
+
+.login-container{
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 90vh;
+  align-items: center;
+  background-color: rgb(255, 225, 183);
+  border-radius: 0.5vw;
+  border-top: 1vw solid rgb(255, 238, 215);
+  border-right: 1vw solid #ffca84;
+  border-left: 1vw solid #f5c587;
+  border-bottom: 1vw solid #dea04f;
+}
+
+.login-header{
+  margin-top: 5vh;
+  margin-bottom: 7vh;
+  font-size: 3em;
+  letter-spacing: 0.5em;
+  color: #5c85ff;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25vh;
+}
+
+.login-form label{
+  margin-top: 4vh;
+  margin-bottom: 1vh;
+  margin-left: 0.4vw;
+  font-size: 1em;
+  letter-spacing: 0.4vh;
+  font-weight: bolder;  
+  color: #5c85ff;
+}
+
+.login-form input{
+  width: 50vw;
+  height: 6vh;
+  border: none;
+  border-radius: 0.5vw;
+  background-color: #FFFFC7;
+  padding-left: 0.4vw;
+  font-size: 1em;
+}
+
+.login-form::placeholder{
+  color: gray;
+}
+
+.login-footer{
+  display: flex;
+  position: absolute;
+  bottom: 10vh;
+  justify-content: space-between;
+  width: 50vw;
+  margin-left: 2vh;
+}
+
+.go-to-register{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.go-to-register p{
+  
+  color: #44b680;
+}
+
+.go-to-register a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8vw;
+  height: 3vh;
+  color: white;
+  text-decoration: none;
+  background-color: #e9927c;
+  border-radius: 0.5vw;
+}
+
+.login-footer button{
+  width: 15vw;
+  height: 7vh;
+  border: none;
+  border-radius: 0.51vw;
+  color: white;
+  background-color: #5c85ff;
+
+  font-weight: 700;
+  font-size: 1em;
+  letter-spacing: 1vw;
+}
+/*--------------------------------------------LOGIN---------------------------------------*/
+
+
+
+/*--------------------------------------------HEADER---------------------------------------*/
+
+.main-header{
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; 
+    height: 15vh;
+    background-color: rgb(246, 211, 166);
+}
+
+.main-img{
+  object-fit: contain;
+  width: 10vw;
+  margin-left: 43vw;
+}
+
+.logout-btn{
+  display: flex;
+  justify-content: flex-end;
+  width: 43vw;
+}
+
+.logout-btn button{
+  width: 5vw;
+  height: 4vh;
+  border: none;
+  border-radius: 3vw;
+  background-color: #c585f3;
+  color: white;
+  font-weight: 900;
+}
+
+/*--------------------------------------------HEADER---------------------------------------*/
+
+
+
+/*--------------------------------------------MAIN-NAV---------------------------------------*/
+
+.main-nav{
+    position: fixed;
+    top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+    background-color: rgb(246, 211, 166);
+    height: 100vh;
+}
+
+.main-nav div{
+    margin-top: 10vh;
+    width: 15vw;       
+    height: 8vh;
+}
+
+.main-nav div a {
+  width: 15vw;       
+  height: 8vh;
+  text-decoration: none;
+  border-radius: 1vw;
+  font-size: 1.4em;
+  font-weight: 900;
+  color: white;
+  display: flex;             /* Make a flex container */
+  justify-content: center;   /* Center horizontally */
+  align-items: center;       /* Center vertically */
+}
+
+.main-nav div:nth-child(1) a{
+  background-color: #a8bbf4;
+}
+
+.main-nav div:nth-child(2) a{
+  background-color: #44b680;
+}
+
+.main-nav div:nth-child(3) a{
+  background-color: #e9927c;
+}
+/*--------------------------------------------MAIN-NAV---------------------------------------*/
+
+
+
+/*--------------------------------------------MAIN CONTENT---------------------------------------*/
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    height: 100vh;
+    margin-left: 20vw;
+    margin-top: 15vh;
+}
+/*--------------------------------------------MAIN CONTENT---------------------------------------*/
+
+
+
+/*--------------------------------------------MAIN INPUT FORM---------------------------------------*/
+ .input-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+    width: 60vw;
+    height: 20vh;
+}
+
+.input-form-container{
+  padding: 2vh;
+  width: 58vw;
+  height: 8vh;
+  margin-bottom: 1vh;
+}
+
+.input{
+  border-radius: 5px;
+  width: 57.5vw;
+  height: 3vh;
+  border-style: none;
+  margin-bottom: 1vh;
+  padding-left: 0.5vw;
+  font-size: 1em;
+}
+
+.input::placeholder{
+  color: gray;
+}
+
+.deadline-input{
+  width: 20vw;
+  border-style: none;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 1vh;
+}
+
+.create-btn{
+  font-weight: 500;
+  font-size: 1em;
+  width: 50vw;
+  height: 3vh;
+  border: none;
+}
+/*--------------------------------------------MAIN INPUT FORM---------------------------------------*/
+
+
+
+/*--------------------------------------------MAIN OUTPUT FORM---------------------------------------*/
+.update-input{
+  border: none;
+  border-radius: 0.3vw;
+  height: 3vh;
+  margin-bottom: 0.7vh;
+  background-color: antiquewhite;
+}
+
+.update-deadline-input{
+  border: none;
+  border-radius: 0px 0px 10px 10px;
+  padding: 7px;
+  background-color: antiquewhite;
+}
+
+.update-input{
+  width: 50vw;
+  font-size: 1em;
+}
+.update-deadline-input{
+  margin-right: 50vw;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  background-color: #f0f0f0;
+  color: gray;
+}
+
+.update-input:disabled,
+.update-deadline-input:disabled {
+  padding-left: 0.5vw;
+  background-color: antiquewhite;
+  color: black;
+}
+
+.update-input:not(:disabled),
+.update-deadline-input:not(:disabled) {
+  padding-left: 0.5vw;
+  background-color: white;
+  color: black;
+  cursor: text;
+}
+
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  flex-wrap: wrap;
+  margin-top: 1vw;
+}
+
+.buttons button{
+  height: 2.5vh;
+  border: none;
+  border-radius: 0.3vw;
+}
+
+.edit-btn{
+  width: 2.8vw;
+  margin-right: 0.4vw;
+}
+
+.hidden-update {
+  display: none;
+  border: none;
+  width: 2.8vw;
+  margin-right: 0.4vw;
+}
+
+.delete-btn{
+  width: 2.8vw;
+  margin-right: 38vw;
+
+}
+
+ 
+
+.complete-btn{
+  width: 6vw;
+  
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 50vw;
+  margin-top: 10vh;
+
+  padding: 1vw;
+}
+/*--------------------------------------------MAIN OUTPUT FORM---------------------------------------*/
+
+
+
+
+/*--------------------------------------------TASK MENU---------------------------------------*/
+#task-form-container{
+  border-radius: 0.4vw;  
+  background-color: #a8bbf4;
+  border-top: 8px solid rgb(223, 224, 246);
+  border-right: 8px solid rgb(162, 168, 255);
+  border-left: 8px solid rgb(162, 168, 255);
+  border-bottom: 8px solid rgb(124, 133, 255);
+  background-color: #a8bbf4;
+}
+#task{
+  border-radius: 0.4vw;  
+  background-color: #a8bbf4;
+  border-top: 8px solid rgb(223, 224, 246);
+  border-right: 8px solid rgb(162, 168, 255);
+  border-left: 8px solid rgb(162, 168, 255);
+  border-bottom: 8px solid rgb(124, 133, 255);
+  background-color: #a8bbf4;
+  background-color: #a8bbf4;
+}
+/*--------------------------------------------TASK MENU---------------------------------------*/
+
+
+
+/*--------------------------------------------PROJECT MENU---------------------------------------*/
+#project-form-container{
+  border-radius: 0.4vw;
+  background-color: #44b680;
+  border-top: 8px solid rgb(150, 243, 150);
+  border-right: 8px solid rgb(51, 218, 51);
+  border-left: 8px solid rgb(51, 218, 51);
+  border-bottom: 8px solid rgb(12, 142, 12);
+}
+#project{
+  border-radius: 0.4vw;
+  background-color: #44b680;
+  border-top: 8px solid rgb(150, 243, 150);
+  border-right: 8px solid rgb(51, 218, 51);
+  border-left: 8px solid rgb(51, 218, 51);
+  border-bottom: 8px solid rgb(12, 142, 12);
+}
+/*--------------------------------------------PROJECT MENU---------------------------------------*/
+
+
+
+/*--------------------------------------------REMINDER MENU---------------------------------------*/
+#reminder-form-container {
+  border-radius: 0.4vw;
+  border-top: 8px solid #ffb9b9;
+  border-right: 8px solid rgb(250, 103, 103);
+  border-left: 8px solid rgb(250, 103, 103);
+  border-bottom: 8px solid rgb(213, 49, 49);
+  background-color: #e9927c;
+}
+#reminder{
+  border-radius: 0.4vw;
+  border-top: 8px solid #ffb9b9;
+  border-right: 8px solid rgb(250, 103, 103);
+  border-left: 8px solid rgb(250, 103, 103);
+  border-bottom: 8px solid rgb(213, 49, 49);
+  background-color: #e9927c;
+}
+/*--------------------------------------------REMINDER MENU---------------------------------------*/
+

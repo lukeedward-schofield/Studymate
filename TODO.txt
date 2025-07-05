@@ -1,0 +1,32 @@
+//POSSIBLE REFACTORS
+    //create a task/projects/reminders model
+    //put and patch methods with corresponding functions
+    //map put and patch to these methods
+    //change update input to textarea
+
+FEATURES
+
+*Add finished features to tasks, projects, reminders
+
+
+FIX
+
+ONGOING
+
+
+
+
+
+
+
+
+RESOLVED
+
+
+FILE: \tasks\create.php
+ISSUE: 
+    * Fix input validation
+    * Fix redirection
+        *The errors should be showing while the data does not disappear
+        *requiring a new view makes the data disappear
+        *redirecting to tasks deletes the errors before being shown
