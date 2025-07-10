@@ -2,15 +2,11 @@
 use Core\Database;
 use Core\Validator;
 
-
-
 $reqMethod = $_POST["_method"];
 
-$taskNew = trim($_POST["task-update"]);
+$taskNew = $_POST["task-update"];
 $deadlineNew = $_POST["deadline-update"];
-
 $taskId = $_POST["id"];
-
 
 $config = require"./../config.php";
 $database = new Database($config["database"]);

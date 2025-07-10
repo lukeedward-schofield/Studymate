@@ -4,7 +4,7 @@ use Core\Validator;
 
 $reqMethod = $_POST["_method"];
 
-$reminderNew = trim($_POST["reminder-update"]);
+$reminderNew = $_POST["reminder-update"];
 $deadlineNew = $_POST["deadline-update"];
 
 $reminderId = $_POST["id"];
@@ -17,12 +17,12 @@ if($reqMethod === "PUT")
 {
     $errors = [];
 
-    if(!Validator::validString($reminderNew) || !Validator::validString($deadlineNew))
+    if(! Validator::validString($reminderNew) || !Validator::validString($deadlineNew))
     {
         $errors["reminder-new"] = "Reminder and deadline input should not be empty";
     }
 
-    if(!empty($errors))
+    if(! empty($errors))
     {
         $userId = $_SESSION["user"]["id"];
 

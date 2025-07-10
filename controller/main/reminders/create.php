@@ -2,18 +2,18 @@
 use Core\Database;
 use Core\Validator;
 
-$userId = $_SESSION["user"]["id"];
+$userId = $_SESSION["user"]["id"] ?? null;
 
 $config = require  "./../config.php";
 $db = new Database($config["database"]);
 
-$reminder = trim($_POST["reminder"]);
+$reminder = $_POST["reminder"];
 $deadline = $_POST["deadline"];
 
 //validate
 $errors = [];
-if(Validator::validString($reminder) == false || 
-   Validator::validString($deadline) == false){
+if(! Validator::validString($reminder)|| 
+   ! Validator::validString($deadline)){
     $errors["input"] = "Reminder and Deadline input should not be empty";
 }
 

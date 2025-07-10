@@ -1,4 +1,4 @@
-<?php
+st<?php
 
 use Core\Database;
 use Core\Validator;

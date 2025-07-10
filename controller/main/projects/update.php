@@ -5,9 +5,9 @@
 use Core\Database;
 use Core\Validator;
 
-$method = $_POST["_method"];
+$reqMethod = $_POST["_method"];
 
-$projectNew = trim($_POST["project-update"]);
+$projectNew = $_POST["project-update"];
 $deadlineNew = $_POST["deadline-update"];
 $projectId = $_POST["id"];
 
@@ -15,14 +15,16 @@ $config = require"./../config.php";
 $database = new Database($config["database"]);
 
 
-if($method === "PUT")
+if($reqMethod === "PUT")
 {
-    if(!Validator::validString($projectNew) || !Validator::validString($deadlineNew))
+    $errors = [];
+
+    if(! Validator::validString($projectNew) || ! Validator::validString($deadlineNew))
     {
         $errors["project-new"] = "Project and deadline input should not be empty"; 
     }
 
-    if(!empty($errors))
+    if(! empty($errors))
     {
         $userId = $_SESSION["user"]["id"];
 
@@ -43,7 +45,7 @@ if($method === "PUT")
     header("location: /projects");
     exit();
 }
-else if($method === "PATCH")
+else if($reqMethod === "PATCH")
 {
     $database->query("UPDATE projects SET finished = 1 WHERE id = :id",[
         ":id" => $projectId

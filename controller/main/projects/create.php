@@ -7,13 +7,13 @@ $userId = $_SESSION["user"]["id"];
 $config = require  "./../config.php";
 $db = new Database($config["database"]);
 
-$project = trim($_POST["project"]);
+$project = $_POST["project"];
 $deadline = $_POST["deadline"];
 
 //validate
 $errors = [];
-if(Validator::validString($project) == false || 
-   Validator::validString($deadline) == false){
+if(! Validator::validString($project)|| 
+   ! Validator::validString($deadline)){
     $errors["input"] = "Project and Deadline input should not be empty";
 }
 
