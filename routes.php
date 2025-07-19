@@ -1,8 +1,7 @@
 <?php  
 
-$router->get("/", "../controller/index.php")->only("auth");
 
-$router->get("/welcome", "../controller/auth/index.php")->only("guest");
+$router->get("/", "../controller/auth/index.php")->only("guest");
 
 $router->get("/register", "../controller/auth/register/create.php")->only("guest");
 $router->post("/register", "../controller/auth/register/store.php")->only("guest");

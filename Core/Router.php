@@ -22,9 +22,16 @@ class Router{
                }
                
                 require $route["controller"];
+                return;
             }
-
         }
+
+        $this->abort(404);
+    }
+
+    public function abort($code = 404)
+    {
+      require "../views/404.views.php";
     }
 
      public function only($middleware){

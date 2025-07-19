@@ -7,6 +7,8 @@ $database = new Database($config["database"]);
 
 $taskId = $_POST["id"];
 
+
+
 $database->query("DELETE FROM tasks WHERE id = :id",[
                  ":id" => $taskId
 ]);
