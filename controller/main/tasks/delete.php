@@ -1,15 +1,13 @@
 <?php  
 use Core\Database;
+use Core\App;
 
-
-$config = require "./../config.php";
-$database = new Database($config["database"]);
+$db = App::resolve("Core/Database");
 
 $taskId = $_POST["id"];
 
 
-
-$database->query("DELETE FROM tasks WHERE id = :id",[
+$db->query("DELETE FROM tasks WHERE id = :id",[
                  ":id" => $taskId
 ]);
 

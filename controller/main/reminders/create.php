@@ -1,11 +1,11 @@
 <?php  
 use Core\Database;
 use Core\Validator;
+use Core\App;
 
 $userId = $_SESSION["user"]["id"] ?? null;
 
-$config = require  "./../config.php";
-$db = new Database($config["database"]);
+$db = App::resolve("Core/Database");
 
 $reminder = $_POST["reminder"];
 $deadline = $_POST["deadline"];

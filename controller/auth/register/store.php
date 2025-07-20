@@ -2,6 +2,7 @@
 
 use Core\Database;  
 use Core\Validator;
+use Core\App;
 
 $username = $_POST["username"];
 $email = $_POST["email"];
@@ -9,7 +10,7 @@ $password = $_POST["password"];
 
 $errors = [];
 
-//input validation
+// //input validation
 if(!Validator::validString($username)){
     $errors["username"] = "need username";
 }
@@ -30,9 +31,8 @@ if(!empty($errors)){
 
 
 //database validation
-$config = require "./../config.php";
+$db = App::resolve("Core/Database");
 
-$db = new Database($config["database"]);
 
 //check if email already exists
 $user = $db->query("SELECT * FROM users WHERE email = :email",[

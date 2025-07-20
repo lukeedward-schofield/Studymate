@@ -1,11 +1,11 @@
 <?php  
 use Core\Database;
 use Core\Validator;
+use COre\App;
 
 $userId = $_SESSION["user"]["id"] ?? null;
 
-$config = require  "./../config.php";
-$db = new Database($config["database"]);
+$db = App::resolve("Core/Database");
 
 $task = $_POST["task"];
 $deadline = $_POST["deadline"];

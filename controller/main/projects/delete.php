@@ -1,12 +1,11 @@
 <?php  
 use Core\Database;
+use Core\App;
 
-
-$config = require"./../config.php";
-$database = new Database($config["database"]);
+$db = App::resolve("Core/Database");
 
 $projectId = $_POST["id"];
-$database->query("DELETE FROM projects WHERE id = :id",[
+$db->query("DELETE FROM projects WHERE id = :id",[
     "id" => $projectId
 ]);
 

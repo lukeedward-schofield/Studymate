@@ -18,6 +18,9 @@ spl_autoload_register(function ($class) {
    require BASE_PATH . $class . ".php";
 });
 
+require "bootstrap.php";
+
+
 
 $router = new Router();
 //uses the $router, that is why we create the router object first

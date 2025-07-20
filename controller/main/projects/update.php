@@ -4,6 +4,7 @@
 
 use Core\Database;
 use Core\Validator;
+use Core\App;
 
 $reqMethod = $_POST["_method"];
 
@@ -11,8 +12,7 @@ $projectNew = $_POST["project-update"];
 $deadlineNew = $_POST["deadline-update"];
 $projectId = $_POST["id"];
 
-$config = require"./../config.php";
-$database = new Database($config["database"]);
+$db = App::resolve("Core/Database");
 
 
 if($reqMethod === "PUT")
@@ -28,7 +28,7 @@ if($reqMethod === "PUT")
     {
         $userId = $_SESSION["user"]["id"];
 
-        $projects = $database->query("SELECT * FROM projects WHERE user_id = :user_id", [
+        $projects = $db->query("SELECT * FROM projects WHERE user_id = :user_id", [
             ":user_id" => $userId
         ]);
 
@@ -36,7 +36,7 @@ if($reqMethod === "PUT")
         exit();
     }
 
-    $database->query("UPDATE projects SET project = :project, due_date = :due_date WHERE id = :id",[
+    $db->query("UPDATE projects SET project = :project, due_date = :due_date WHERE id = :id",[
         "project" => $projectNew,
         "due_date" => $deadlineNew,
         "id" => $projectId
@@ -47,7 +47,7 @@ if($reqMethod === "PUT")
 }
 else if($reqMethod === "PATCH")
 {
-    $database->query("UPDATE projects SET finished = 1 WHERE id = :id",[
+    $db->query("UPDATE projects SET finished = 1 WHERE id = :id",[
         ":id" => $projectId
     ]);
     

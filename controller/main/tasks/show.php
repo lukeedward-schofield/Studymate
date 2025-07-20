@@ -1,11 +1,10 @@
 <?php  
 use Core\Database;
-
+use Core\App;
 
 $userId = $_SESSION["user"]["id"];
 
-$config = require "./../config.php";
-$db = new Database($config["database"]);
+$db = App::resolve("Core/Database");
 
 $tasks = $db->query("SELECT * FROM tasks WHERE user_id = :user_id", [
     ":user_id" => $userId

@@ -1,6 +1,7 @@
 <?php  
 use Core\Database;
 use Core\Validator;
+use Core\App;
 
 $reqMethod = $_POST["_method"];
 
@@ -9,8 +10,8 @@ $deadlineNew = $_POST["deadline-update"];
 
 $reminderId = $_POST["id"];
 
-$config = require"./../config.php";
-$database = new Database($config["database"]);
+
+$db = App::resolve("Core/Database");
 
 
 if($reqMethod === "PUT")
@@ -26,7 +27,7 @@ if($reqMethod === "PUT")
     {
         $userId = $_SESSION["user"]["id"];
 
-        $reminders = $database->query("SELECT * FROM reminders WHERE user_id = :user_id", [
+        $reminders = $db->query("SELECT * FROM reminders WHERE user_id = :user_id", [
             ":user_id" => $userId
         ]);
 
@@ -34,7 +35,7 @@ if($reqMethod === "PUT")
         exit();
     }
 
-    $database->query("UPDATE reminders SET reminder = :reminder, due_date = :due_date WHERE id = :id",[
+    $db->query("UPDATE reminders SET reminder = :reminder, due_date = :due_date WHERE id = :id",[
         "reminder" => $reminderNew,
         "due_date" => $deadlineNew,
         "id" => $reminderId
@@ -45,7 +46,7 @@ if($reqMethod === "PUT")
 }
 else if($reqMethod === "PATCH")
 {
-    $database->query("UPDATE reminders SET finished = 1 WHERE id = :id",[
+    $db->query("UPDATE reminders SET finished = 1 WHERE id = :id",[
         ":id" => $reminderId
     ]);
 

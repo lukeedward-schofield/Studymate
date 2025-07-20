@@ -1,7 +1,9 @@
-st<?php
+<?php
 
+use Core\Container;
 use Core\Database;
 use Core\Validator;
+use Core\App;
 
 $email = trim($_POST["email"]);
 $password = trim($_POST["password"]); 
@@ -22,9 +24,10 @@ if(!empty($errors)){
     exit();
 }
 
-$config = require "./../config.php";
 
-$db = new Database($config["database"]);
+
+$db = App::resolve("Core/Database");
+
 
 $user = $db->query("SELECT * FROM users WHERE email = :email",[
     ":email" => $email

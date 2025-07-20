@@ -1,12 +1,11 @@
 <?php  
 use Core\Database;
+use Core\App;
 
-
-$config = require"./../config.php";
-$database = new Database($config["database"]);
+$db = App::resolve("Core/Database");
 
 $reminderId = $_POST["id"];
-$database->query("DELETE FROM reminders WHERE id = :id",[
+$db->query("DELETE FROM reminders WHERE id = :id",[
     "id" => $reminderId
 ]);
 
