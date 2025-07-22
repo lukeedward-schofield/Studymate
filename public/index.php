@@ -1,9 +1,7 @@
 <?php  
 session_start();
 use Core\Router;
-use Core\Middleware\Middleware;
-use Core\Middleware\Auth;
-use Core\Middleware\Guest;
+
 
 
 const BASE_PATH = __DIR__ . "\..\\";
@@ -32,9 +30,12 @@ $method = $_POST["_method"] ?? $_SERVER["REQUEST_METHOD"];
 //parse_url to separate path to query string
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 
-// dd($_SESSION["user"]);
+
 
 $router->route($uri, $method);
+
+//destroy session data
+unset($_SESSION["_flash"]);
 
 
 

@@ -10,14 +10,18 @@ class LoginForm
     {
 
         if(!Validator::validEmail($email)){
-            $this->errors["email"] = "Email not valid";
+            $this->error("email", "Email not valid");
         }
 
         if(!Validator::validString($password)){
-            $this->errors["password"] = "need password";
+            $this->error("password", "Need password");
         }
 
         return empty($this->errors);
+    }
+
+    public function error($field, $value){
+        $this->errors[$field  ] = $value;
     }
 
     public function errors()

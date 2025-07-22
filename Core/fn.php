@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use Core\Session;
 
 function dd($value){
     echo "<pre>";
@@ -19,13 +21,9 @@ function login($userData = []){
 
 function logout(){
     //clear session
-    $_SESSION = [];
+    Session::flush();
     //destroy session
-    session_destroy();
-
-    //clear/expire/delete cookie
-    $cookieParams = session_get_cookie_params();
-    setcookie("PHPSESSID", "", time() - 3600, $ $cookieParams["path"], $cookieParams["domain"], $cookieParams["secure"], $cookieParams["httponly"]);
+    Session::destroy();
 }
 
 function redirect($route){
