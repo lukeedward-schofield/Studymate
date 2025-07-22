@@ -21,7 +21,7 @@ class LoginForm
     }
 
     public function error($field, $value){
-        $this->errors[$field  ] = $value;
+        $this->errors[$field] = $value;
     }
 
     public function errors()

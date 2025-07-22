@@ -1,7 +1,7 @@
 <?php  
-use Core\Database;
-use Core\Validator;
-use COre\App;
+use Core\App;
+use Core\Session;
+use Http\Forms\NoteForm;
 
 $userId = $_SESSION["user"]["id"] ?? null;
 
@@ -10,22 +10,12 @@ $db = App::resolve("Core/Database");
 $task = $_POST["task"];
 $deadline = $_POST["deadline"];
 
-//validate
-$errors = [];
-if(! Validator::validString($task)|| 
-   ! Validator::validString($deadline)){
-    $errors["input"] = "Task and Deadline input should not be empty";
-}
-
-if(! empty($errors))
+$NoteForm = new NoteForm(); 
+if(! $NoteForm->validate($task, $deadline))
 {
-    $tasks = $db->query("SELECT * FROM tasks WHERE user_id = :user_id", [
-        ":user_id" => $userId
-    ])->fetchAll();
-
-
-    require "../views/main/tasks.view.php";
-    exit();
+    $NoteForm->error("input", "Task and Deadline input should not be empty");
+    Session::flash("input", $NoteForm->errors());
+    redirect("/tasks");
 }
 
 $db->query("INSERT INTO tasks (task, due_date, user_id) 
@@ -34,8 +24,7 @@ $db->query("INSERT INTO tasks (task, due_date, user_id)
                     ":due_date" => $deadline,
                     ":user_id" => $userId]);
 
-header("location: /tasks");
-exit();
+redirect("/tasks");
 
 
 

@@ -1,7 +1,8 @@
 <?php  
-use Core\Database;
-use Core\Validator;
 use Core\App;
+use Core\Session;
+use Http\Forms\NoteForm;
+
 
 $userId = $_SESSION["user"]["id"];
 
@@ -11,21 +12,12 @@ $project = $_POST["project"];
 $deadline = $_POST["deadline"];
 
 //validate
-$errors = [];
-if(! Validator::validString($project)|| 
-   ! Validator::validString($deadline)){
-    $errors["input"] = "Project and Deadline input should not be empty";
-}
-
-if(! empty($errors))
+$NoteForm = new NoteForm(); 
+if(! $NoteForm->validate($project, deadline: $deadline))
 {
-    $projects = $db->query("SELECT * FROM projects WHERE user_id = :user_id", [
-        ":user_id" => $userId
-    ])->fetchAll();
-
-
-    require "../views/main/projects.view.php";
-    exit();
+    $NoteForm->error("input", "Project and Deadline input should not be empty");
+    Session::flash("input", $NoteForm->errors());
+    redirect("/projects");
 }
 
 $db->query("INSERT INTO projects (project, due_date, user_id) 
@@ -34,7 +26,6 @@ $db->query("INSERT INTO projects (project, due_date, user_id)
                     ":due_date" => $deadline,
                     ":user_id" => $userId]);
 
-header("location: /projects");
-exit();
+redirect("/projects");
 
 

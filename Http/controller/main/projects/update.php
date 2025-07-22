@@ -1,10 +1,7 @@
 <?php  
-
-
-
-use Core\Database;
-use Core\Validator;
 use Core\App;
+use Core\Session;
+use Http\Forms\UpdateForm;
 
 $reqMethod = $_POST["_method"];
 
@@ -15,45 +12,25 @@ $projectId = $_POST["id"];
 $db = App::resolve("Core/Database");
 
 
-if($reqMethod === "PUT")
+$UpdateForm = new UpdateForm();
+if(! $UpdateForm->validate($projectNew, $deadlineNew))
 {
-    $errors = [];
-
-    if(! Validator::validString($projectNew) || ! Validator::validString($deadlineNew))
-    {
-        $errors["project-new"] = "Project and deadline input should not be empty"; 
-    }
-
-    if(! empty($errors))
-    {
-        $userId = $_SESSION["user"]["id"];
-
-        $projects = $db->query("SELECT * FROM projects WHERE user_id = :user_id", [
-            ":user_id" => $userId
-        ]);
-
-        require "../views/main/projects.view.php";
-        exit();
-    }
-
-    $db->query("UPDATE projects SET project = :project, due_date = :due_date WHERE id = :id",[
-        "project" => $projectNew,
-        "due_date" => $deadlineNew,
-        "id" => $projectId
-    ]);
-
-    header("location: /projects");
-    exit();
+    $UpdateForm->error("project-new", "Project and deadline input should not be empty");
+    Session::flash("project-new", $UpdateForm->errors());
+    redirect("/projects");
 }
-else if($reqMethod === "PATCH")
-{
-    $db->query("UPDATE projects SET finished = 1 WHERE id = :id",[
-        ":id" => $projectId
-    ]);
-    
-    header("location: /projects");
-    exit();
-}
+
+
+$db->query("UPDATE projects SET project = :project, due_date = :due_date WHERE id = :id",[
+    "project" => $projectNew,
+    "due_date" => $deadlineNew,
+    "id" => $projectId
+]);
+
+redirect("/projects");
+
+
+
 
 
 

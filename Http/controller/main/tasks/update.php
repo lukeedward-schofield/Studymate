@@ -1,7 +1,7 @@
 <?php  
-use Core\Database;
-use Core\Validator;
 use Core\App;
+use Core\Session;
+use Http\Forms\UpdateForm;
 
 $reqMethod = $_POST["_method"];
 
@@ -11,43 +11,18 @@ $taskId = $_POST["id"];
 
 $db = App::resolve("Core/Database");
 
-
-if($reqMethod === "PUT")
+$UpdateForm = new UpdateForm();
+if(! $UpdateForm->validate($taskNew, $deadlineNew))
 {
-    $errors = [];
-
-    if(! Validator::validString($taskNew) || !Validator::validString($deadlineNew))
-    {
-        $errors["task-new"] = "Task and deadline input should not be empty";
-    }
-
-    if(! empty($errors))
-    {
-        $userId = $_SESSION["user"]["id"];
-    
-        $tasks = $db->query("SELECT * FROM tasks WHERE user_id = :user_id",[
-            ":user_id" => $userId
-        ]);
-
-        require "../views/main/tasks.view.php";
-        exit();
-    }
-
-    $db->query("UPDATE tasks SET task = :task, due_date = :due_date WHERE id = :id",[
-        "task" => $taskNew,
-        "due_date" => $deadlineNew,
-        "id" => $taskId
-    ]);
-
-    header("location: /tasks");
-    exit();
+    $UpdateForm->error("task-new", "Task and deadline input should not be empty");
+    Session::flash("task-new", $UpdateForm->errors());
+    redirect("/tasks");
 }
-else if($reqMethod === "PATCH"){
 
-    $db->query("UPDATE tasks SET finished = 1 WHERE id = :id",[
-        ":id" => $taskId
-    ]);
+$db->query("UPDATE tasks SET task = :task, due_date = :due_date WHERE id = :id",[
+    "task" => $taskNew,
+    "due_date" => $deadlineNew,
+    "id" => $taskId
+]);
 
-    header("location: /tasks");
-    exit();
-}
+redirect("/tasks");
